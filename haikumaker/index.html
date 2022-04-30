@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>縦読みメーカー(仮)</title>
+    <meta property="og:url" content="https://miyaryo1212.github.io/works/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="#" />
+    <meta property="og:description" content="#" />
+    <meta property="og:site_name" content="#" />
+    <meta property="og:image" content="#" />
+    <!-- Simple CSS -->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>縦書きメーカー(仮)</h1>
+    </header>
+
+    <main>
+        <article>
+            <h2>「横書き」から「縦書き」に変換</h2>
+            <p><textarea cols="50" rows="10" id="inputtext">五月雨を　　　
+あつめてはやし
+最上川　　　　</textarea></p>
+            <p><button type="button" onclick="convert()">変換！</button></p>
+            <p><textarea cols="50" rows="10" id="outputtext"></textarea></p>
+        </article>
+    </main>
+
+    <footer><small>&#xA9; 2022 miyaryo1212</small></footer>
+
+    <script>
+        function convert() {
+            var inputtext = document.getElementById('inputtext').value;
+            console.log(inputtext);
+            // とりあえず<textarea>から値を取得
+            var splitbyline = inputtext.split(/\n/);
+            console.log(splitbyline);
+            // 改行毎に分割
+            var p = [];
+            for (var o of splitbyline) {
+                p.push(o.length);
+                console.log(p);
+            }
+            // 一番多い文字数に合わせて空の配列を作成
+            var q = Math.max.apply(null, p);
+            console.log(q);
+            var outputlist = new Array(q);
+
+            console.log(outputlist);
+            for (var n of splitbyline) {
+                var splitbycharacter = n.split('');
+                console.log(splitbycharacter);
+                // 文字ごとに分割
+                var repeatnum = 0;
+                for (var m of splitbycharacter) {
+                    console.log(m);
+                    var l = String(outputlist[repeatnum]);
+                    l = l.replace("undefined", "");
+                    l = String(m) + String(l);
+                    outputlist[repeatnum] = l;
+                    // outputlist.unshift([m]);
+                    repeatnum += 1;
+                }
+                console.log(outputlist);
+            };
+            var j;
+            for (var k = 0; k < outputlist.length; k++) {
+                j = j + String(outputlist[k]) + "\n";
+                j = j.replace("undefined", "");
+
+                console.log(j);
+            }
+            console.log(j);
+            document.getElementById('outputtext').textContent = j;
+        }
+    </script>
+</body>
+
+</html>
