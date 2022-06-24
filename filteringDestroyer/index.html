@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:image" content="" />
+    <!--
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    -->
+    <link rel="stylesheet" href="./css/ress.edited.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+</head>
+
+<body onload="getDisplayHeight()">
+    <header>
+        <div>
+            <label for="form__input--text">URL:</label>
+            <input type="text" name="text" id="form__input--text" value="https://www.bing.com/" size="40"> <button
+                type="submit" value="send" onclick="updateLink()">入力</button>
+        </div>
+    </header>
+    <main id="main">
+        <iframe src="https://www.bing.com/" id="page_frame" width="100%" height=""></iframe>
+    </main>
+</body>
+
+</html>

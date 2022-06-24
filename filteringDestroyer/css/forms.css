@@ -1,0 +1,122 @@
+/* https://qiita.com/takeshisakuma/items/4218822871af486c8469 */
+
+input,
+button,
+textarea,
+select {
+  /* デフォルトスタイルをリセット */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* font-familyを継承しないので、継承させる */
+  font-family: inherit;
+
+  /* iOSの角丸をリセット */
+  border-radius: 0;
+
+  /* box-size */
+  box-sizing: border-box;
+
+  /* 文字の大きさ iOSでズームさせないために16px以上を指定 */
+  font-size: 16px;
+
+  /* 文字色を親から継承 */
+  color: inherit;
+}
+
+label {
+  /* iOSでのlabelとinput,select,textareaの関連付け */
+  cursor: pointer;
+}
+
+/* スピンボタン非表示 chrome,safari */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="month"]::-webkit-outer-spin-button,
+input[type="month"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-outer-spin-button,
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="week"]::-webkit-outer-spin-button,
+input[type="week"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-outer-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button {
+  /*-webkit-appearance: none;
+  margin: 0;*/
+  display: none;
+}
+
+/* スピンボタン非表示(firefox) */
+input[type="number"],
+input[type="month"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="time"],
+input[type="date"] {
+  -moz-appearance: textfield;
+}
+
+/* クリアボタン非表示 */
+input[type="date"]::-webkit-clear-button,
+input[type="month"]::-webkit-clear-button,
+input[type="datetime-local"]::-webkit-clear-button,
+input[type="time"]::-webkit-clear-button,
+input[type="week"]::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+
+/* input */
+input {
+  /* 背景色(任意の色を指定) */
+  background-color: #eee;
+
+  /* inputの枠線を消す */
+  border: 1px solid transparent;
+  transition: border 0.2s ease-out;
+
+  /* 文字色を親から継承 */
+  color: inherit;
+
+  /* 任意の高さ */
+  height: 35px;
+
+  /*inputのフォーカス時の枠線を消す*/
+  outline: 0;
+}
+
+/* inputにフォーカスが当たっている時 */
+input:focus {
+  border-bottom: 1px solid#e74c3c;
+}
+
+button {
+  background: #16a085;
+  border: none;
+  border-bottom: 4px solid #434343;
+  border-radius: 4px;
+  color: #FFF;
+  display: table;
+  font-weight: bold;
+  line-height: 1;
+  margin: 10px auto 0;
+  outline: none;
+  padding: 20px 40px;
+  transition: background-color 0.2s ease-out, transform 0.2s ease-out, border-bottom 0.2s ease-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button:hover,
+button:focus {
+  background: #1abc9c;
+}
+
+button:active {
+  background: #006266;
+  border-bottom: 4px solid transparent;
+  transform: translateY(4px);
+}
