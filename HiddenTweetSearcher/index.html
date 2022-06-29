@@ -1,51 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Hidden Tweet Searcher</title>
-        <style type="text/css">
-            /* 各自で修正願います */
-            body {
-                background-color: #f0f0f0ff;
-                color: #000f;
-                text-align: left;
-            }
-            @media (prefers-color-scheme: dark) {
-                body {
-                    background: #333f;
-                    color: #ffff; 
-                }
-            }
-        </style>
-        <!-- 試験的にJSを追加しましたが、意味無いので多分消します。 -->
-        <script type="text/javascript">
-            document.oncontextmenu = function() {return false};
-            document.oncopy = function() {return false};
-        </script>
-        <meta property="og:title" content="Hidden Tweet Searcher">
-        <meta property="og:description" content="ログインせずにツイートを覗いてみましょう">
-        <meta property="og:site_name" content="Hidden Tweet Searcher">
-        <meta property="og:url" content="#">
-        <meta property="og:locale" content="ja_JP">
-        <meta property="og:type" content="website">
-        <!-- OGPイメージは任意で追加お願いします -->
-        <meta property="og:image" content="./ogp-img.png">
-        
-    </head>
-    
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hidden Tweet Searcher</title>
+
+    <script type="text/javascript">
+        document.oncontextmenu = function () { return false };
+        document.oncopy = function () { return false };
+    </script>
+
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <meta property="og:title" content="Hidden Tweet Searcher">
+    <meta property="og:description" content="ログインせずにツイートを覗いてみましょう">
+    <meta property="og:site_name" content="Hidden Tweet Searcher">
+    <meta property="og:url" content="#">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./ogp-img.png">
+</head>
+
+<body>
+    <header>
         <h1>Hidden Tweet Searcher</h1>
-        <h2>ログイン不要で相手のユーザー名を入力するだけで閲覧可能！</h2>
-        <strong>※注意！</strong>
-        <ui>
-            <li><b>公開アカウントのみ</b>閲覧可能。<u>鍵アカウントは見れません</u>。</li>
-            <li>新しく検索する際は、ページを<b>再読み込み</b>してください。</li>
-        </ui>
-        <br>
-        <div class="inputArea">
-            <label for="lang">言語の選択：</label>
+        <p>
+            ログイン不要で相手のユーザー名を入力するだけで閲覧可能！
+            <br><strong>＊注意：</strong>公開アカウントのみ。鍵 (非公開) アカウントは見れません。
+        </p>
+    </header>
+
+    <div class="inputArea">
+        <label for="lang">言語の選択：
             <select id="lang">
                 <option value="en">English</option>
                 <option value="ar">اللغة العربية</option>
@@ -94,22 +82,26 @@
                 <option value="vi">Tiếng Việt</option>
                 <option value="zh">Zhōngwén</option>
                 <!-- <option value="zh-Hant"></option> -->
-            </select><br>
-            <label for="inputBox">@以降を入力:</label><br>
+            </select>
+        </label>
+        <label for="inputBox">@以降を入力:
             <input type="text" id="inputBox" name="inputBox" maxlength=15 size="20" autofocus>
-            <button type="button" onclick="search(); disabled=true;">表示</button>
-        </div>
+        </label>
+    </div>
+    <button type="button" onclick="frameRendering()">表示</button>
 
-        <script src="./js/script.js"></script>
-    
-        <a class="twitter-timeline" data-lang="ja" data-width="400" data-theme="" href="#" id="twitter-timeline"></a>
-        <br><br>
-        <p><strong>表示されない場合は？</strong><br>該当するアカウントは鍵(非公開)アカウントであるか存在しません。<br>公開されているアクティブなユーザーか確認し、ページを再読み込みしてから正しいIDを再入力してください。<br><input type="button" value="ページの再読込" onclick="window.location.reload();"></p>
-        <br>
-        <footer>
-            <small>&#xA9; 2022 miyaryo1212</small><br>
-            <small>&#xA9; 2022 Syuugo</small>
-        </footer>
+    <div id="frame"></div>
 
-    </body>
+    <p>
+        <strong>表示されない場合は？</strong>
+        <br>該当するアカウントは鍵 (非公開) アカウントであるか存在しません。
+        <br>公開されているアクティブなユーザーか確認し、ページを再読み込みしてから正しいIDを再入力してください。
+    </p>
+
+    <footer>
+        <small>&#xA9; 2022 miyaryo1212</small><br>
+        <small>&#xA9; 2022 Syuugo</small>
+    </footer>
+</body>
+
 </html>

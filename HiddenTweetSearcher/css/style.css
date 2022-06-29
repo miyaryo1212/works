@@ -1,0 +1,18 @@
+body {
+    background-color: #f0f0f0ff;
+    color: #000f;
+    text-align: left;
+}
+
+.inputArea {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #333f;
+        color: #ffff;
+    }
+}
