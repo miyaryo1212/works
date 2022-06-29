@@ -1,27 +1,34 @@
-function search() {
-    var AccountID = document.getElementById("inputBox").value;
-    let TwitterTimeline = document.getElementById("twitter-timeline");
-    //aタグを取得
+function frameRendering() {
+    try {
+        const removeAllContents = document.getElementById("frame");
+        removeAllContents.innerHTML = "";
+        const removeiframe = document.getElementById("rufous-sandbox");
+        removeiframe.remove();
+    } catch (e) { }
+    var accountID = document.getElementById("inputBox").value;
+    var language = document.getElementById('lang').value;
 
-    var Language = document.getElementById('lang').value;
-    // 言語を取得
+    var makeLink = "https://twitter.com/" + accountID + "?lang=" + language;
 
-    var MakeLink = "https://twitter.com/" + AccountID + "?lang=" + Language;
-    //入力でリンクを作成
-
-    TwitterTimeline.setAttribute("href", MakeLink);
-    console.log("Link: " + MakeLink);
-    //作成したリンクでhref属性の値を更新
-
+    var theme = "light";
     if (window.matchMedia('(prefers-color-scheme: dark)').matches == true) {
-        var Theme = "dark";
-        TwitterTimeline.setAttribute("data-theme", Theme);
-    } // ダークモードを適用
+        var theme = "dark";
+    }
 
+    var newTimeline = document.createElement("a");
+    newTimeline.id = "Timeline";
 
-    var script = document.createElement("script");
-    script.src = "https://platform.twitter.com/widgets.js";
-    document.body.appendChild(script);
-    //Twitter社提供のJavaScriptコードの読み込み
-    //コードを読み込む前にhref属性を書き換えなければならない
+    var frame = document.getElementById("frame");
+    frame.appendChild(newTimeline)
+
+    var loadTimeline = document.getElementById("Timeline");
+    loadTimeline.setAttribute("href", makeLink);
+    loadTimeline.setAttribute("class", "twitter-timeline")
+    loadTimeline.setAttribute("data-theme", theme);
+    loadTimeline.setAttribute("data-width", "400");
+
+    var scriptByTwitter = document.createElement("script");
+    scriptByTwitter.src = "https://platform.twitter.com/widgets.js";
+    scriptByTwitter.id = "scriptByTwitter";
+    frame.appendChild(scriptByTwitter);
 }
